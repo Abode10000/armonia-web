@@ -1,20 +1,30 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 
-const Login: React.FC = () => {
+const Signup: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleSignup = (e: React.FormEvent) => {
     e.preventDefault();
     navigate("/services");
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#F7FAFC]" dir="rtl">
-      <div className="bg-white shadow-lg rounded-2xl p-10 w-80 text-center">
-        <h2 className="text-2xl font-bold text-[#0A6D8B] mb-6">تسجيل الدخول</h2>
-        <form className="flex flex-col gap-4" onSubmit={handleLogin}>
+      <div className="bg-white shadow-lg rounded-2xl p-10 w-96 text-center">
+        <h2 className="text-2xl font-bold text-[#0A6D8B] mb-6">إنشاء حساب جديد</h2>
+        <form className="flex flex-col gap-4" onSubmit={handleSignup}>
+          <input
+            type="text"
+            placeholder="الاسم الكامل"
+            className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0A6D8B]"
+          />
+          <input
+            type="number"
+            placeholder="العمر"
+            className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0A6D8B]"
+          />
           <input
             type="email"
             placeholder="البريد الإلكتروني"
@@ -29,15 +39,9 @@ const Login: React.FC = () => {
             type="submit"
             className="bg-gradient-to-r from-[#0A6D8B] to-[#18A4B8] text-white py-2 rounded-lg font-semibold hover:opacity-90 transition"
           >
-            تسجيل الدخول
+            إنشاء الحساب
           </button>
         </form>
-        <p className="text-gray-600 mt-4 text-sm">
-          ليس لديك حساب؟{" "}
-          <Link to="/signup" className="text-[#0A6D8B] font-semibold hover:underline">
-            أنشئ حسابًا جديدًا
-          </Link>
-        </p>
       </div>
 
       <Footer />
@@ -45,4 +49,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Signup;
